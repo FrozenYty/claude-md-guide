@@ -69,10 +69,10 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 **Chinese by default. English when it counts.**
 
-- Respond in Chinese (Simplified) by default.
-- Use English only when explicitly requested, or when quoting English technical terms / code identifiers.
-- **Chinese typography**: Full-width quotation marks `""` (U+201C/U+201D) and punctuation `，。；：` are mandatory. ASCII `"` (U+0022) adjacent to Chinese text is a hard error — it is the single most common formatting mistake LLMs make in Chinese output. Before delivering, scan for stray `"` near Chinese characters.
-- **Unicode verification**: `""` and `""` are visually indistinguishable in most editors. When editing Chinese text, verify with a one-liner: `python -c "print([hex(ord(c)) for c in line if ord(c)>127])"`. If the Edit tool rejects a change as "no difference", the characters may be visually similar but not identical — fall back to a Python script with explicit `chr(0xNNNN)`.
+- Respond in Chinese (Simplified) by default. Switch to English only when explicitly requested.
+- Full-width quotation marks `""` (U+201C/U+201D) and punctuation `，。；：` are mandatory in Chinese text. ASCII `"` (U+0022) adjacent to Chinese is a hard error.
+- `""` and `""` are visually identical in most editors. Verify with a hex check: `python -c "print([hex(ord(c)) for c in line if ord(c)>127])"`. Don't trust your eyes.
+- If the Edit tool says "no difference" on a quote swap, the characters are visually similar but not identical — fall back to a Python script with `chr(0xNNNN)`.
 
 ## 6. Output Workspace
 
@@ -85,41 +85,29 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 **When you change a number, name, or ID, find every place that references it.**
 
-Counts, section numbers, file names, and configuration values are copy-pasted into indexes, READMEs, CHANGELOGs, example docs, and routing tables. When you change the source, these copies drift silently — and they're the hardest bug to notice in review.
-
-After changing a value that appears elsewhere:
-
-- Search the project for the old value. Fix every legitimate hit.
-- Pay extra attention to: index tables, README examples, CHANGELOG entries, evals expected-output descriptions.
-- If the old value was wrong in multiple files, you're fixing a single bug, not creating N separate commits.
+- Counts, section numbers, and config values get copy-pasted into indexes, READMEs, CHANGELOGs, and evals. When the source changes, copies drift silently.
+- Search the project for the old value after every such change. Fix every hit.
+- Pay extra attention to index tables, README examples, CHANGELOG entries, and evals expected-output descriptions.
+- If the old value was wrong in multiple files, it is one bug — not N separate commits.
 
 ## 8. Generated Artifact Self-Check
 
 **Every generated artifact ships with a structured checklist, not a glance.**
 
-When producing XML, code, JSON, diagrams, or any artifact the user will use directly:
-
-- Write a checklist of verifiable yes/no items before delivering. "Looks good" is not an item.
+- Write a checklist of yes/no items before delivering XML, code, JSON, or diagrams. "Looks good" is not an item.
 - Each item must be falsifiable — "all edges have `source.y > target.y`" not "flow direction is correct."
 - If any item fails, fix before delivery. Don't hand off with "you can fix this later."
-- The checklist doubles as documentation: the user can see what was verified.
+- The checklist doubles as documentation: the user sees what was verified.
 
 ## 9. Sub-Agent Dispatch
 
 **Use sub-agents for parallel, independent work. Don't solo marathon tasks.**
 
-Sub-agents are most effective when work can be partitioned along natural seams:
-
-- **Parallel audit**: when reviewing many files of the same kind, split by directory (prompts / references / meta). Each agent gets a focused scope and a structured reporting format.
-- **Parallel generation**: when multiple outputs share the same spec but differ in content (e.g., three examples from the same template set), launch them simultaneously in the background.
-- **Background for independence**: use `run_in_background` when one task doesn't block your next action — creative writing, research, or code generation that you can review later.
-- **Foreground for dependency**: when you need the agent's output to decide your next step, run it synchronously.
-
-**Brief them like a colleague** — the agent starts cold, with no context from your conversation. A good prompt states: what to do, why it matters, where the files are, what format to report in, and a cap on response length.
-
-**Trust but verify.** An agent's summary describes what it *intended* to do. Check the actual changes before reporting the work as done. When agents write or edit files, read the output.
-
-**Check permissions before dispatching write-heavy work.** Sub-agents inherit the parent session's permission set. If an agent needs to create or edit files, confirm the Write and Bash tools are allowed before launching it — otherwise the agent will draft content it cannot save, and you'll end up writing the files yourself. A 5-second permission check saves a full agent cycle.
+- Partition along natural seams — never give two agents write access to the same file.
+- Use `run_in_background` when you don't need the result to proceed. Run synchronously when you do.
+- Brief them like a colleague: they start cold, with zero context. State what to do, why, where the files are, and the report format.
+- Trust but verify: an agent's summary describes intent, not outcome. Read the actual output before reporting done.
+- Check permissions before dispatching write-heavy work: sub-agents inherit your permission set. If Write is denied, the agent will draft content it cannot save.
 
 ---
 

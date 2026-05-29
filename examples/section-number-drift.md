@@ -1,5 +1,7 @@
 # Case Study: The Section-Number Drift Bug
 
+[中文版本](section-number-drift-zh.md)
+
 ## Which rules were involved
 
 - **Rule 7 (Cross-Reference Discipline)** — the primary rule that would have

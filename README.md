@@ -1,5 +1,7 @@
 # CLAUDE.md Guide
 
+[中文版本](README-zh.md)
+
 A practical guide to building and using `CLAUDE.md` — the behavioral
 constraint file that shapes how Claude Code works in your project.
 

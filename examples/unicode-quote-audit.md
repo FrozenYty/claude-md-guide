@@ -1,5 +1,7 @@
 # Case Study: The Unicode Quote Audit
 
+[中文版本](unicode-quote-audit-zh.md)
+
 ## Which rules were involved
 
 - **Rule 5 (Language)** — the Chinese typography sub-rule and Unicode
