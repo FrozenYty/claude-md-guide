@@ -29,8 +29,7 @@ project-specific build commands. Few people treat them as a design object.
 This guide argues that a well-crafted CLAUDE.md is the highest-leverage
 investment you can make in a Claude Code project. The nine rules in this
 repo are extracted from real sessions where the absence of each rule caused
-actual bugs, wasted time, or produced unmaintainable output. Each rule is
-backed by a concrete case study in `examples/`.
+actual bugs, wasted time, or produced unmaintainable output. Each rule is backed by concrete case studies in `examples/` and `principles/`.
 
 ## Quick start
 
@@ -58,8 +57,9 @@ claude-md-guide/
 │   ├── 08-generated-artifact-self-check.md
 │   └── 09-sub-agent-dispatch.md
 └── examples/            # Real case studies
-    ├── skill-audit.md
-    └── cross-reference-bug.md
+    ├── bad-claude-md.md
+    ├── section-number-drift.md
+    └── unicode-quote-audit.md
 ```
 
 ## The nine rules at a glance

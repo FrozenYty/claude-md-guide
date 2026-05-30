@@ -1,5 +1,7 @@
 # 案例研究：Unicode 引号审计
 
+[English version](unicode-quote-audit.md)
+
 ## 涉及哪些规则
 
 - **规则 5（语言规则）** —— 中文排版子规则和 Unicode 验证子规则。

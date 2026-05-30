@@ -1,5 +1,7 @@
 # 5. Language
 
+[中文版本](05-language-zh.md)
+
 ## Why this rule exists
 
 This rule has two layers: (a) default response language, and (b) the

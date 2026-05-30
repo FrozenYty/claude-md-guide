@@ -1,5 +1,7 @@
 # 8. Generated Artifact Self-Check
 
+[中文版本](08-generated-artifact-self-check-zh.md)
+
 ## Why this rule exists
 
 An agent generating XML, code, or JSON will confidently deliver output

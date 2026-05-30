@@ -1,5 +1,7 @@
 # 案例研究：章节编号漂移 Bug
 
+[English version](section-number-drift.md)
+
 ## 涉及哪些规则
 
 - **规则 7（交叉引用纪律）** —— 本可预防此 bug 的首要规则。

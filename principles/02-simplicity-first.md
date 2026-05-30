@@ -1,5 +1,7 @@
 # 2. Simplicity First
 
+[中文版本](02-simplicity-first-zh.md)
+
 ## Why this rule exists
 
 LLMs have an instinct for over-engineering. Given a straightforward task,

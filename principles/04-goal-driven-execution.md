@@ -1,5 +1,7 @@
 # 4. Goal-Driven Execution
 
+[中文版本](04-goal-driven-execution-zh.md)
+
 ## Why this rule exists
 
 Vague success criteria produce two symmetric failures: the agent stops too

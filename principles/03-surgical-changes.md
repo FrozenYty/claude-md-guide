@@ -1,5 +1,7 @@
 # 3. Surgical Changes
 
+[中文版本](03-surgical-changes-zh.md)
+
 ## Why this rule exists
 
 LLMs edit files the way a well-meaning houseguest tidies your apartment:

@@ -1,5 +1,7 @@
 # 6. Output Workspace
 
+[中文版本](06-output-workspace-zh.md)
+
 ## Why this rule exists
 
 LLM coding sessions produce artifacts: temporary scripts, generated

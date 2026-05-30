@@ -1,5 +1,7 @@
 # 7. Cross-Reference Discipline
 
+[中文版本](07-cross-reference-discipline-zh.md)
+
 ## Why this rule exists
 
 Numbers, section IDs, file names, and configuration values are the most

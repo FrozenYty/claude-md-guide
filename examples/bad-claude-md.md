@@ -1,5 +1,7 @@
 # Bad CLAUDE.md: A Novice Anti-Pattern
 
+[中文版本](bad-claude-md-zh.md)
+
 This is the kind of CLAUDE.md a developer writes on their first attempt —
 before they understand what makes a behavioral constraint actually work.
 Every line is either too vague to act on, too vague to verify, or not a

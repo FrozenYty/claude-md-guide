@@ -1,5 +1,7 @@
 # CLAUDE.md 指南
 
+[English version](README.md)
+
 一份构建和使用 `CLAUDE.md` 的实用指南 —— 它是塑造 Claude Code 在项目中工作方式的行为约束文件。
 
 ## 什么是 CLAUDE.md？
@@ -16,7 +18,7 @@
 
 大多数 CLAUDE.md 文件要么是空的，要么只有一句话，要么是项目构建命令的堆砌。很少有人把它当作设计对象来对待。
 
-本指南的观点是：一份精心编写的 CLAUDE.md 是你在 Claude Code 项目中杠杆率最高的投入。本仓库中的九条规则提炼自真实会话 —— 每条规则的缺失都曾导致实际的 bug、浪费了时间，或产生了不可维护的输出。每条规则在 `examples/` 中都有具体的案例研究作为支撑。
+本指南的观点是：一份精心编写的 CLAUDE.md 是你在 Claude Code 项目中杠杆率最高的投入。本仓库中的九条规则提炼自真实会话 —— 每条规则的缺失都曾导致实际的 bug、浪费了时间，或产生了不可维护的输出。每条规则在 `examples/` 和 `principles/` 中都有具体的案例研究作为支撑。
 
 ## 快速开始
 
@@ -43,8 +45,9 @@ claude-md-guide/
 │   ├── 08-generated-artifact-self-check.md
 │   └── 09-sub-agent-dispatch.md
 └── examples/            # 真实案例研究
-    ├── skill-audit.md
-    └── cross-reference-bug.md
+    ├── bad-claude-md.md
+    ├── section-number-drift.md
+    └── unicode-quote-audit.md
 ```
 
 ## 九条规则速览

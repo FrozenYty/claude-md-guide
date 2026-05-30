@@ -1,5 +1,7 @@
 # 1. Think Before Coding
 
+[中文版本](01-think-before-coding-zh.md)
+
 ## Why this rule exists
 
 LLMs are wired to produce output, not to pause and admit ignorance. When

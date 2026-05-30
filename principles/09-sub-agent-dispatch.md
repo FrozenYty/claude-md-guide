@@ -1,5 +1,7 @@
 # 9. Sub-Agent Dispatch
 
+[中文版本](09-sub-agent-dispatch-zh.md)
+
 ## Why this rule exists
 
 A single agent working sequentially on a large task will hit context

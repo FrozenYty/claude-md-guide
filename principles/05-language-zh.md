@@ -1,5 +1,7 @@
 # 5. 语言
 
+[English version](05-language.md)
+
 ## 为什么有这条规则
 
 这条规则有两个层面：（a）默认回复语言，以及（b）中文输出所要求的 Unicode 排版规范。
