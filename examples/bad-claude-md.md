@@ -148,9 +148,9 @@ upgrade everything" on line nine. A standing rule should not mandate
 destructive actions.
 
 **Maps to Rule 7 (Cross-Reference Discipline).** When dependencies change,
-you must check every file that references them: "When you change a
-number, name, or ID, find every place that references it." The correct
-behavior is *audit the blast radius*, not *always upgrade*.
+you must check every file that references them: "Every change has a blast
+radius. Before you mark a task done, audit every file affected by it."
+The correct behavior is *audit the blast radius*, not *always upgrade*.
 
 ---
 

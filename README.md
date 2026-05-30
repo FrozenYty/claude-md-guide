@@ -72,7 +72,7 @@ claude-md-guide/
 | 4 | Goal-Driven Execution | Define verifiable success criteria. Loop until they pass. |
 | 5 | Language | Chinese by default. Full-width punctuation. Verify Unicode. |
 | 6 | Output Workspace | Dated subfolders. No clutter in project root. |
-| 7 | Cross-Reference Discipline | Change a number → find every file that references it. |
+| 7 | Cross-Reference Discipline | Audit the blast radius of every change. Fix all stale references. |
 | 8 | Generated Artifact Self-Check | Every artifact ships with a structured checklist. |
 | 9 | Sub-Agent Dispatch | Parallel independent work. Brief cold agents well. Verify output. |
 

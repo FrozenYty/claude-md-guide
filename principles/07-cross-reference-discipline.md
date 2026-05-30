@@ -4,42 +4,30 @@
 
 ## Why this rule exists
 
-Numbers, section IDs, file names, and configuration values are the most
-copy-pasted strings in any project. They appear in index tables, READMEs,
-CHANGELOGs, eval descriptions, routing tables, and inline comments. When
-you change the source, every copy silently drifts — and these are the
-hardest bugs to notice in review because the text looks perfectly
-plausible in isolation. There is no red squiggly line under a wrong
-section number.
+LLMs treat each task as a point change: edit one file, declare success, move on. But software projects are graphs of references. When you rename a file, move a function, update a config value, add a section, or delete a component — every file that points to the old location is now a bug. The LLM's natural instinct is to stop at the primary edit. The rule forces it to execute the secondary edits before declaring done.
 
-A concrete case: `drawio-templates.md` was restructured — four templates
-were removed, eleven were added. The actual templates moved to new
-sections (§1-§4 architecture, §5-§15 layouts/classic). But the index
-tables at the top of the file were never updated. **Ten out of ten**
-index entries pointed to wrong sections. A user following "Flowchart →
-§3" would land on the RAG pipeline template.
+Numbers, section IDs, file names, and configuration values are the most copy-pasted strings in any project. They appear in index tables, READMEs, CHANGELOGs, eval descriptions, routing tables, and inline comments. When you change the source, every copy silently drifts — and these are the hardest bugs to notice in review because the text looks perfectly plausible in isolation. There is no red squiggly line under a wrong section number.
 
-This error then propagated to `examples/README.md` (Diffusion tagged as
-§5, actually §2), `evals/evals.json` (same §5→§2 error), and
-`CHANGELOG.md` (claimed 19 templates, actually 15; claimed 8 architecture
-templates, actually 4). Three independent audit agents discovered
-different fragments of the same bug — none realized it was systemic.
+A concrete case: `drawio-templates.md` was restructured — four templates were removed, eleven were added. The actual templates moved to new sections. But the index tables at the top of the file were never updated. **Ten out of ten** index entries pointed to wrong sections. A user following "Flowchart → §3" would land on the RAG pipeline template.
+
+This error then propagated to `examples/README.md`, `evals/evals.json`, and `CHANGELOG.md`. Three independent audit agents discovered different fragments of the same bug — none realized it was systemic.
+
+Another case: a developer renamed a config field from `max_retries` to `retry_limit` in `config.py`. The LLM updated the definition but left 14 references to `max_retries` across seven files — test fixtures, CLI argument parsers, environment variable mappers, and a README example. All 14 became runtime errors. The fix was 30 seconds of grep, but the agent never ran it.
 
 ## What it looks like in practice
 
-**Before changing a value that appears elsewhere:**
+**After every change with cross-file impact, audit the blast radius:**
+
 ```bash
-grep -r "§5" .          # find all references to old section number
-grep -r "19 templates" . # find all references to old count
-grep -r "8 architecture" . # find all references to old category count
+grep -r "old_filename" .          # file renames
+grep -r "old_function_name" .     # function moves/renames
+grep -r "old_config_key" .        # config changes
+grep -r "§5" .                    # section number changes
+grep -r "19 templates" .          # count changes
 ```
-Fix every hit. If the old value was wrong in multiple files, it is one
-bug, not N separate commits.
+
+Fix every hit in the same commit. If the old reference was wrong in multiple files, it is one bug, not N separate commits.
 
 ## When to relax it
 
-If the changed value is unique to one file and appears nowhere else
-(e.g., an internal variable name in a single script), the search step is
-ceremonial. The rule activates when a value has been documented, indexed,
-or referenced in a different file — which is almost always true for
-counts, section IDs, and file paths.
+If the changed value is unique to one file and appears nowhere else (e.g., an internal variable name in a single script), the search step is ceremonial. The rule activates when a value has been documented, indexed, referenced in another file, or exposed as an interface — which is almost always true for file names, function signatures, config keys, counts, and section IDs.

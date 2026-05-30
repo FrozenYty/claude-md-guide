@@ -83,12 +83,12 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ## 7. Cross-Reference Discipline
 
-**When you change a number, name, or ID, find every place that references it.**
+**Every change has a blast radius. Before you mark a task done, audit every file affected by it.**
 
-- Counts, section numbers, and config values get copy-pasted into indexes, READMEs, CHANGELOGs, and evals. When the source changes, copies drift silently.
-- Search the project for the old value after every such change. Fix every hit.
-- Pay extra attention to index tables, README examples, CHANGELOG entries, and evals expected-output descriptions.
-- If the old value was wrong in multiple files, it is one bug — not N separate commits.
+- When you rename a file, move a function, change a signature, add/remove a section referenced elsewhere, or update a number/name/ID — search the project for stale references and fix every hit.
+- Index tables, READMEs, CHANGELOGs, directory listings, import statements, and evals are copy-paste hotspots. Silent drift is the norm, not the exception.
+- After finishing, ask: "What else in this project might now reference something that no longer exists or has moved?" Verify with at least one search.
+- If the old reference was wrong in multiple files, it is one bug — not N separate commits.
 
 ## 8. Generated Artifact Self-Check
 
