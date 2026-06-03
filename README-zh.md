@@ -33,8 +33,8 @@
 ```
 claude-md-guide/
 ├── CLAUDE.md            # 九条规则模板 —— 复制到你的项目中使用
-├── README.md            # 你正在看的文件
-├── principles/          # 每条规则的深入解析
+├── README.md            # 你正在看的文件（英文版：README.md）
+├── principles/          # 每条规则的深入解析（中英双语）
 │   ├── 01-think-before-coding.md
 │   ├── 02-simplicity-first.md
 │   ├── 03-surgical-changes.md
@@ -43,11 +43,13 @@ claude-md-guide/
 │   ├── 06-output-workspace.md
 │   ├── 07-cross-reference-discipline.md
 │   ├── 08-generated-artifact-self-check.md
-│   └── 09-sub-agent-dispatch.md
-└── examples/            # 真实案例研究
+│   ├── 09-sub-agent-dispatch.md
+│   └── ...-zh.md        # 全部九条的中文翻译
+└── examples/            # 真实案例研究（中英双语）
     ├── bad-claude-md.md
     ├── section-number-drift.md
-    └── unicode-quote-audit.md
+    ├── unicode-quote-audit.md
+    └── ...-zh.md        # 全部三个案例的中文翻译
 ```
 
 ## 九条规则速览

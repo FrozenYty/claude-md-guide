@@ -11,7 +11,7 @@
 
 ## What happened
 
-The `academic-writing-toolkit` skill went through a template restructuring:
+The `papersmith` skill went through a template restructuring:
 four weak architecture templates were removed, and eleven general-layout and
 classic-diagram templates were added. The actual templates lived at sections
 §1 through §15 in `drawio-templates.md`.

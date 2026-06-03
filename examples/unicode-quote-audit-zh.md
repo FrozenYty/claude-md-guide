@@ -9,7 +9,7 @@
 
 ## 发生了什么
 
-在对 `academic-writing-toolkit` 技能 24 个 prompt 文件进行全面审计期间，一个扫描 Unicode 引号错误的 Python 脚本在 `humanize-zh.md` 中发现了五处不同的 bug —— 而这个文件正是*为整个工具包定义中文排版规则的文件*。
+在对 `papersmith` 技能 24 个 prompt 文件进行全面审计期间，一个扫描 Unicode 引号错误的 Python 脚本在 `humanize-zh.md` 中发现了五处不同的 bug —— 而这个文件正是*为整个工具包定义中文排版规则的文件*。
 
 这五处 bug 分为三类：
 

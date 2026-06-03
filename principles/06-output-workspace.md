@@ -18,7 +18,7 @@ chronologically; the description suffix makes them findable.
 A concrete case: today's session produced three temporary Python scripts
 (`check_quotes.py`, `fix_quotes.py`, `fix_savefig.py`) and a skill
 repository. They went into `20260530-skill-review/` (temporary) and
-`20260530-academic-writing-toolkit-dev/` (project), respectively. Not a
+`20260530-papersmith-dev/` (project), respectively. Not a
 single file landed in the project root.
 
 ## What it looks like in practice

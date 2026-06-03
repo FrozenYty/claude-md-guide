@@ -45,8 +45,8 @@ actual bugs, wasted time, or produced unmaintainable output. Each rule is backed
 ```
 claude-md-guide/
 ├── CLAUDE.md            # The nine-rule template — copy this to your project
-├── README.md            # You are here
-├── principles/          # Deep dives on each rule
+├── README.md            # You are here (中文版: README-zh.md)
+├── principles/          # Deep dives on each rule (en + zh)
 │   ├── 01-think-before-coding.md
 │   ├── 02-simplicity-first.md
 │   ├── 03-surgical-changes.md
@@ -55,11 +55,13 @@ claude-md-guide/
 │   ├── 06-output-workspace.md
 │   ├── 07-cross-reference-discipline.md
 │   ├── 08-generated-artifact-self-check.md
-│   └── 09-sub-agent-dispatch.md
-└── examples/            # Real case studies
+│   ├── 09-sub-agent-dispatch.md
+│   └── ...-zh.md        # Chinese translations of all nine
+└── examples/            # Real case studies (en + zh)
     ├── bad-claude-md.md
     ├── section-number-drift.md
-    └── unicode-quote-audit.md
+    ├── unicode-quote-audit.md
+    └── ...-zh.md        # Chinese translations of all three
 ```
 
 ## The nine rules at a glance
@@ -103,6 +105,4 @@ improves your Claude Code sessions, open an issue or PR.
   points, and a real case study in `examples/` where the rule would have
   prevented a bug.
 - Modified rules need: an updated case study showing the before/after.
-
-
 

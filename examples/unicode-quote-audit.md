@@ -11,7 +11,7 @@
 
 ## What happened
 
-During a comprehensive audit of the `academic-writing-toolkit` skill's 24
+During a comprehensive audit of the `papersmith` skill's 24
 prompt files, a Python script scanning for Unicode quote errors found five
 distinct bugs in `humanize-zh.md` — the very file that *defines the
 Chinese typography rules for the entire toolkit*.
