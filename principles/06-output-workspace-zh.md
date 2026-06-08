@@ -6,7 +6,7 @@
 
 LLM 编码会话会产生各种制品：临时脚本、生成的报告、截图、日志文件。如果没有一个指定的存放位置，这些东西会在项目根目录下堆积——与源文件、配置文件和构建产物混在一起——让人无法区分哪些是永久的、哪些是可丢弃的。
 
-这条规则强制了两项规范：（1）所有制品的放入 `Claude_Code_Files/`，绝不放入项目根目录；（2）每次会话使用一个带日期的子文件夹。日期前缀（`YYYYMMDD-`）意味着文件夹按时间顺序排列；描述后缀则使其可被找到。
+这条规则强制了两项规范：（1）所有制品的放入 `Claude_Code_Files/`（默认为工作区根目录下，可被工作区级 CLAUDE.md 覆盖），（2）每次会话使用一个带日期的子文件夹。日期前缀（`YYYYMMDD-`）意味着文件夹按时间顺序排列；描述后缀则使其可被找到。
 
 一个具体案例：今天的会话产生了三个临时 Python 脚本（`check_quotes.py`、`fix_quotes.py`、`fix_savefig.py`）和一个 skill 仓库。它们分别放入了 `20260530-skill-review/`（临时）和 `20260530-papersmith-dev/`（项目）。没有一个文件落到项目根目录。
 
@@ -43,3 +43,20 @@ myproject/
 ## 什么时候可以放宽
 
 对于不产生文件的、一次性的简单命令（如 `git status`），这条规则没有额外开销。这条规则在你要向磁盘写入文件时激活——问问自己：这个东西属于项目的永久组成部分，还是一个会话制品？
+
+## 工作区级路径覆盖
+
+默认输出路径 `<workspace-root>/Claude_Code_Files/` 适用于单项目工作区。在多项目工作区中，你可能希望所有项目共享一个输出目录。在工作区根目录下创建 `<workspace-root>/.claude/CLAUDE.md`，写入一条覆盖规则：
+
+```markdown
+## Output Workspace (Override Rule 6)
+
+The output directory for all Claude-generated files under this workspace
+is fixed to:
+
+/absolute/path/to/Claude_Code_Files/
+```
+
+用户级 CLAUDE.md 的 Rule 6 在检测到此覆盖时自动使用指定路径。工作区下的项目无需各自建立输出目录。
+
+参见 [00-three-tier-system-zh.md](00-three-tier-system-zh.md) 了解用户级、工作区级、项目级 CLAUDE.md 如何交互的完整说明。

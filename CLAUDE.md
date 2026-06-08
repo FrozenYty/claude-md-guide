@@ -78,8 +78,9 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 **One home for artifacts. No clutter in project root.**
 
-- `Claude_Code_Files/` is the dedicated directory for all Claude-generated artifacts: reports, notes, screenshots, temporary scripts, logs.
-- Always create a dated subfolder: `YYYYMMDD-short-description` (e.g. `20260521-legado-espresso`). Never write output files directly into project directories.
+- Default output path is `<workspace-root>/Claude_Code_Files/`. If a workspace-level `.claude/CLAUDE.md` (one level above your project directories) specifies a custom path, use that instead.
+- Create a dated subfolder for each session: `YYYYMMDD-short-description` (e.g. `20260604-project-audit`). Files from the same session share the same folder.
+- Before writing any file outside the output directory, ask: "Is this a permanent project file, or a session artifact?" Source code, configs, and tracked documentation stay in the project; everything else goes into the dated folder.
 
 ## 7. Cross-Reference Discipline
 

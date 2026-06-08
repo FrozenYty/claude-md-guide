@@ -22,19 +22,23 @@
 
 ## 快速开始
 
-1. 将 `CLAUDE.md` 复制到你的项目根目录。
-2. 删除不适用于你工作流程的规则。
-3. 添加一条项目专属的规则（例如你的技术栈、命名规范）。
-4. 使用一周。留意哪些地方仍然出错。为它加一条规则。
-5. 重复。一份好的 CLAUDE.md 永远不会完成，只会趋于收敛。
+1. 阅读 [principles/00-three-tier-system-zh.md](principles/00-three-tier-system-zh.md)
+   了解 CLAUDE.md 文件存放位置及其交互方式。
+2. 将 `CLAUDE.md` 模板复制到用户级（`~/.claude/CLAUDE.md`）存放
+   通用规则，或复制到项目根目录存放项目专属规则。
+3. 删除不适用于你工作流程的规则。
+4. 添加一条项目专属的规则（例如你的技术栈、命名规范）。
+5. 使用一周。留意哪些地方仍然出错。为它加一条规则。
+6. 重复。一份好的 CLAUDE.md 永远不会完成，只会趋于收敛。
 
 ## 仓库结构
 
 ```
 claude-md-guide/
-├── CLAUDE.md            # 九条规则模板 —— 复制到你的项目中使用
+├── CLAUDE.md            # 九条规则模板 —— 复制到 ~/.claude/ 或项目根目录使用
 ├── README.md            # 你正在看的文件（英文版：README.md）
-├── principles/          # 每条规则的深入解析（中英双语）
+├── principles/          # 体系说明与每条规则的深入解析（中英双语）
+│   ├── 00-three-tier-system.md
 │   ├── 01-think-before-coding.md
 │   ├── 02-simplicity-first.md
 │   ├── 03-surgical-changes.md
@@ -44,7 +48,7 @@ claude-md-guide/
 │   ├── 07-cross-reference-discipline.md
 │   ├── 08-generated-artifact-self-check.md
 │   ├── 09-sub-agent-dispatch.md
-│   └── ...-zh.md        # 全部九条的中文翻译
+│   └── ...-zh.md        # 全部十篇的中文翻译
 └── examples/            # 真实案例研究（中英双语）
     ├── bad-claude-md.md
     ├── section-number-drift.md
@@ -61,7 +65,7 @@ claude-md-guide/
 | 3 | 外科手术式修改 | 只触碰必须改的地方。匹配现有风格。 |
 | 4 | 目标驱动执行 | 定义可验证的成功标准。循环直至通过。 |
 | 5 | 语言规则 | 默认中文。全角标点。验证 Unicode。 |
-| 6 | 输出工作区 | 按日期创建子文件夹。不在项目根目录遗留杂物。 |
+| 6 | 输出工作区 | 工作区根目录 `Claude_Code_Files/`，支持工作区级覆盖。按日期创建子文件夹。 |
 | 7 | 交叉引用纪律 | 审计每次变更的波及范围。修复所有过时引用。 |
 | 8 | 生成物自检 | 每个产出物附带结构化检查清单。 |
 | 9 | 子 Agent 调度 | 并行独立工作。向无上下文 Agent 提供简要说明。验证输出。 |

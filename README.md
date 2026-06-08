@@ -33,20 +33,25 @@ actual bugs, wasted time, or produced unmaintainable output. Each rule is backed
 
 ## Quick start
 
-1. Copy `CLAUDE.md` to your project root.
-2. Remove rules that don't apply to your workflow.
-3. Add one project-specific rule (e.g., your tech stack, your naming
+1. Read [principles/00-three-tier-system.md](principles/00-three-tier-system.md)
+   to understand where CLAUDE.md files live and how they interact.
+2. Copy the `CLAUDE.md` template to your user-level (`~/.claude/CLAUDE.md`)
+   for rules that apply everywhere, or to your project root for
+   project-specific rules.
+3. Remove rules that don't apply to your workflow.
+4. Add one project-specific rule (e.g., your tech stack, your naming
    conventions).
-4. Use it for a week. Notice what still goes wrong. Add a rule for it.
-5. Repeat. A good CLAUDE.md is never finished, only converged.
+5. Use it for a week. Notice what still goes wrong. Add a rule for it.
+6. Repeat. A good CLAUDE.md is never finished, only converged.
 
 ## Structure of this repo
 
 ```
 claude-md-guide/
-├── CLAUDE.md            # The nine-rule template — copy this to your project
+├── CLAUDE.md            # The nine-rule template — copy to ~/.claude/ or project root
 ├── README.md            # You are here (中文版: README-zh.md)
-├── principles/          # Deep dives on each rule (en + zh)
+├── principles/          # Deep dives on the tier system and each rule (en + zh)
+│   ├── 00-three-tier-system.md
 │   ├── 01-think-before-coding.md
 │   ├── 02-simplicity-first.md
 │   ├── 03-surgical-changes.md
@@ -56,7 +61,7 @@ claude-md-guide/
 │   ├── 07-cross-reference-discipline.md
 │   ├── 08-generated-artifact-self-check.md
 │   ├── 09-sub-agent-dispatch.md
-│   └── ...-zh.md        # Chinese translations of all nine
+│   └── ...-zh.md        # Chinese translations of all ten
 └── examples/            # Real case studies (en + zh)
     ├── bad-claude-md.md
     ├── section-number-drift.md
@@ -73,7 +78,7 @@ claude-md-guide/
 | 3 | Surgical Changes | Touch only what you must. Match existing style. |
 | 4 | Goal-Driven Execution | Define verifiable success criteria. Loop until they pass. |
 | 5 | Language | Chinese by default. Full-width punctuation. Verify Unicode. |
-| 6 | Output Workspace | Dated subfolders. No clutter in project root. |
+| 6 | Output Workspace | Workspace-root `Claude_Code_Files/` with workspace-level override. Dated subfolders. |
 | 7 | Cross-Reference Discipline | Audit the blast radius of every change. Fix all stale references. |
 | 8 | Generated Artifact Self-Check | Every artifact ships with a structured checklist. |
 | 9 | Sub-Agent Dispatch | Parallel independent work. Brief cold agents well. Verify output. |
